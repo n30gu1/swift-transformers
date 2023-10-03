@@ -40,6 +40,7 @@ public struct AutoTokenizer {
     static let knownTokenizers: [String : Tokenizer.Type] = [
         "BertTokenizer"  : BertTokenizer.self,
         "GPT2Tokenizer"  : GPT2Tokenizer.self,
+        "Gpt2Tokenizer"  : GPT2Tokenizer.self,
         "FalconTokenizer": FalconTokenizer.self,
         "LlamaTokenizer" : LlamaTokenizer.self,
 
