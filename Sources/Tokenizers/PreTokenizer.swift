@@ -38,6 +38,7 @@ enum PreTokenizerType: String {
     case Punctuation
     case Digits
     case Split
+    case Metaspace
     // Several more to be supported
     case Unknown = ""
 }
@@ -53,6 +54,7 @@ struct PreTokenizerFactory {
         case .Punctuation: return PunctuationPreTokenizer(config: config)
         case .Digits: return DigitsPreTokenizer(config: config)
         case .Split: return SplitPreTokenizer(config: config)
+        case .Metaspace: return MetaspacePreTokenizer(config: config)
         default       : fatalError("Unsupported PreTokenizer type: \(typeName)")
         }
     }
@@ -138,6 +140,16 @@ class SplitPreTokenizer: PreTokenizer {
     public func preTokenize(text: String) -> [String] {
         guard let pattern = pattern else { return [text] }
         return pattern.split(text, invert: invert)
+    }
+}
+
+class MetaspacePreTokenizer: PreTokenizer {
+    required public init(config: Config) {
+        
+    }
+    
+    public func preTokenize(text: String) -> [String] {
+        return text.replacingOccurrences(of: " ", with: "▁").split(by: "▁", includeSeparators: true)
     }
 }
 
