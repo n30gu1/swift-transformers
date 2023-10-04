@@ -41,6 +41,7 @@ public struct AutoTokenizer {
         "BertTokenizer"  : BertTokenizer.self,
         "GPT2Tokenizer"  : GPT2Tokenizer.self,
         "Gpt2Tokenizer"  : GPT2Tokenizer.self,
+        "Gpt_NeoTokenizer": GPT2Tokenizer.self,
         "FalconTokenizer": FalconTokenizer.self,
         "LlamaTokenizer" : LlamaTokenizer.self,
 
